@@ -1,5 +1,5 @@
-module.exports = {
-  mongodb:
-    'mongodb+srv://kkamal714:kamal@cluster0.mrcce.mongodb.net/ConnectDevelopers?retryWrites=true&w=majority',
-  jwtSecret: 'nothing'
-};
+if (process.env.NODE_ENV === 'production') {
+  module.exports = require('./db_prod');
+} else {
+  module.exports = require('./db_dev');
+}
