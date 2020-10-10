@@ -1,4 +1,5 @@
-module.exports = {
-  mongodb: 'mongodb://localhost:27017/Developer-Connector',
-  jwtSecret: 'nothing',
-};
+if (process.env.NODE_ENV === 'production') {
+  module.exports = require('./db_prod');
+} else {
+  module.exports = require('./db_dev');
+}
